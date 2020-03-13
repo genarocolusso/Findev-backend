@@ -5,9 +5,10 @@ const routes = require("./routes");
 
 const app = express();
 
+const dotenv = require('dotenv');
+dotenv.config();
 mongoose.connect(
-  "mongodb+srv://mongouser:mongouser@cluster0-s9tj0.mongodb.net/week10?retryWrites=true&w=majority",
-  {
+  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0-s9tj0.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,  {
     useNewUrlParser: true,
     useUnifiedTopology: true
   }
